@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+    <%- include('partials/Bootstrap.ejs') %>
+</head>
+<body>
+    <%- include('partials/Navbar.ejs') %>  
+
+   <div class="container">
+    <h1>Editer donnée</h1>
+    <form action="/allposts/edit/<%= data._id %>?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+
+        
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" value="<%=data.titre%>">
+            <label for="floatingInput">Titre du poste</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" value="<%=data.auteur%>">
+            <label for="floatingInput">Auteur</label>
+          </div>
+          
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" id="floatingTextarea"><%=data.description%></textarea>
+                <label for="floatingTextarea">Comments</label>
+              </div>
+              <br>
+            
+         
+         
+
+        
+
+        
+
+        <input type="submit" class="btn btn-warning" value="Editer un post">
+    </form>
+
+    <h1>Supprimer la donnée</h1>
+    <form action="/allposts/delete/<%= data._id %>?_method=DELETE" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="btn btn-danger" value="Supprimer">
+    </div>
+    </form>
+
+</body>
+</html>
